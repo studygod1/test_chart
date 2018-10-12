@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="echarts.min.js"></script>
+    <title>Document</title>
+    <script type="text/javascript">
+     var d1=["20180514","20180516","20180517","20180519","20180521","20180523","20180524","20180525","20180526","20180527","20180528","20180529","20180530",
+             "20180602","20180606","20180609","20180621","20180625","20180629",
+             "20180703","20180705","20180716","20180717","20180718","20180719","20180724","20180725","20180726","20180731",
+         "20180802","20180803","20180806","20180810","20180811"];
+     var d2=["1","1","12","1","31","208","128","46","24","9","253",
+         "1","1","1","1","1","1","1","1","1","1","1",
+         "2","2","2","1","79","110","2","55","1","29","17","18"];
+
+    </script>
+</head>
+<body>
+<div id="main" style="width: 1000px; height: 400px">
+    <script type="text/javascript">
+
+        var mychart=echarts.init(document.getElementById("main"));
+        var option={
+            title:{
+                text:"日期统计"
+            },
+            tooltip:{},
+            legend:{
+                data:["次数"]
+            },
+            xAxis:{
+                data:d1
+            },
+            yAxis:{ },
+            dataZoom: [
+                {   // 这个dataZoom组件，默认控制x轴。
+                    type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
+                    start: 0,      // 左边在 0% 的位置。
+                    end: 100         // 右边在 100% 的位置。
+                }],
+            series:[{
+                  name:'次数',
+                  type:'bar',
+                   data:d2
+            }]
+        };
+        mychart.setOption(option);
+    </script>
+</div>
+</body>
+</html>
